@@ -374,7 +374,7 @@ function fetchPromptsToSave() {
             const titleElement = container.querySelector(".prompt-title");
             const codeElement = container.querySelector(".prompt");
             return {
-                promptitle: titleElement.textContent,
+                prompt_title: titleElement.textContent,
                 prompt_text: codeElement.textContent,
                 tab_name: container.dataset.tabName,
                 
