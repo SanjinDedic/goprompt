@@ -1,0 +1,211 @@
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 40px;
+  color: #333;
+  background-color: #f5f9fd;
+}
+
+button {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.prompt-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.prompt {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 1.1rem;
+}
+
+.edit-prompt {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 4px;
+}
+
+.edit-prompt:focus {
+  outline: none;
+}
+
+#add-tab, #save-prompts, #copy-all,#public {
+  background-color: #1c355f;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px 5px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+#add-tab:hover, #save-prompts:hover, #copy-all:hover, #public:hover{
+  background-color: #3a6aa9;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+#tab-links {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+#tab-links li {
+  background-color: #1c355f;
+  color: #fff;
+  border: 1px solid #1c355f;
+  border-bottom: none;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 2px;
+  padding: 10px;
+  font-size: 1.1rem;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: relative;
+  top: 1px;
+}
+
+#tab-links li.active {
+  background-color: #f5f9fd;
+  color: #333;
+  border-bottom: 1px solid #f5f9fd;
+  z-index: 1;
+}
+
+#tab-content {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tab {
+  display: none;
+}
+
+.tab.active {
+  display: block;
+}
+
+.prompt-title {
+  color: #1c355f;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.copy-prompt, .delete-prompt {
+  background-color: #a7d0ff;
+  border: none;
+  color: #1c355f;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.copy-prompt:hover, .delete-prompt:hover {
+  background-color: #7fb1e8;
+}
+
+.prompt-list {
+  background-color: #e7f2ff;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+
+.prompt-btn {
+  background-color: #a7d0ff;
+  border: none;
+  color: #1c355f;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.prompt-btn:hover {
+  background-color: #7fb1e8;
+}
+
+.prompt-list {
+  background-color: #e7f2ff;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.prompt-container {
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.google-sign-out {
+  display: inline-block;
+  background-color: #4285f4;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+    
+}
+
+.google-sign-out:hover {
+  background-color: #2b78e4;
+}
+
+.google-sign-out:focus {
+  outline: none;
+}
+
+.styled-button {
+    background-color: #1c355f;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px 5px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.styled-button:hover {
+    background-color: #3a6aa9;; /* The hover background color */
+}
