@@ -151,3 +151,7 @@ footer p {
   background-color: #444;
   color: #fff;
 }
+
+.spacer {
+  flex-grow: 1;
+}

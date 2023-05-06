@@ -92,7 +92,7 @@ nav {
 }
 
 .nav-link {
-  margin: 0 20px;
+  margin: 0 40px; /* Increase the margin values */
   text-decoration: none;
   color: #fff;
   font-weight: bold;

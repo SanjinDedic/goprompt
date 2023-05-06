@@ -1,9 +1,13 @@
 body {
   font-family: 'Roboto', Arial, sans-serif;
-  margin: 40px;
+  margin-top: 60px; /* Set the top margin */
+  margin-bottom: 0px; /* Set the bottom margin */
+  margin-left: 40px; /* Set the left margin */
+  margin-right: 40px; /* Set the right margin */
   color: #333;
   background-color: #f5f9fd;
 }
+
 
 button {
   font-family: 'Roboto', Arial, sans-serif;
@@ -172,8 +176,6 @@ button {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
-
 .google-sign-out {
   display: inline-block;
   background-color: #4285f4;
@@ -183,6 +185,7 @@ button {
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
+  margin-right: 40px; /* Add this line */
     
 }
 
@@ -208,4 +211,51 @@ button {
 
 .styled-button:hover {
     background-color: #3a6aa9;; /* The hover background color */
+}
+
+/* testing the nav bar css */
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #0a3d62;
+  padding: 12px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  margin-left: -45px; /* Add negative margin to the left */
+  margin-right: 0px; /* Add negative margin to the right */
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0; /* Set padding to 0 */
+  box-sizing: border-box;
+}
+
+.spacer {
+  flex-grow: 1; /* Add this new rule */
+}
+
+.nav-link {
+  margin: 0 40px; /* Increase the margin values */
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0 5px;
+  position: relative;
+}
+
+.nav-link:last-child {
+  border-right: none;
+}
+
+.nav-link:hover {
+  color: #4CAF50;
 }
