@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Members Area</title>
-  <link rel="stylesheet" href="/css/myprompt.css">
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script>
-    function onGAPILoad() {
-      gapi.load('auth2', () => {
-        gapi.auth2.init({
-          client_id: "501150822446-s7mo1cp2sdj8nv1pclq5t7774j1a41h2.apps.googleusercontent.com"
-        }).then((authInstance) => {
-          googleAuth = authInstance;
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Area</title>
+    <link rel="stylesheet" href="/css/myprompt.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+      function onGAPILoad() {
+        gapi.load('auth2', () => {
+          gapi.auth2.init({
+            client_id: "501150822446-s7mo1cp2sdj8nv1pclq5t7774j1a41h2.apps.googleusercontent.com"
+          }).then((authInstance) => {
+            googleAuth = authInstance;
+          });
         });
-      });
-    }
-  </script>
-</head>
-<body>
-<nav>
-    <div class="nav-wrapper">
-    <a href="../index.html" class="nav-link">Home</a>
-    <a href="./pages/public.html" class="nav-link">Public</a>
-    <div class="spacer"></div>
-    <button onclick="signOut()" id="sign-out" class="google-sign-out">Sign Out</button>
+      }
+    </script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="/pages/public.html" class="nav-link">Public</a>
+        <div class="spacer"></div>
+        <button onclick="signOut()" id="sign-out" class="google-sign-out">Sign Out</button>
+      </div>
+    </nav>
+    <button id="add-tab">Add Tab</button>
+    <button id="save-prompts">Save Prompt Collection</button>
+    <button onclick="savePublicPrompts()" id="public">Publish Prompt Collection</button>
+    <div class="tabs">
+      <ul id="tab-links">
+        <!-- Tab links will be added dynamically -->
+      </ul>
+      <div id="tab-content">
+        <!-- Tab content will be added dynamically -->
+      </div>
     </div>
-</nav>
-    
-  <button id="add-tab">Add Tab</button>
-  <button id="save-prompts">Save Prompt Collection</button>
-  <button onclick="savePublicPrompts()" id="public">Publish Prompt Collection</button>
-  <div class="tabs">
-    <ul id="tab-links">
-      <!-- Tab links will be added dynamically -->
-    </ul>
-    <div id="tab-content">
-      <!-- Tab content will be added dynamically -->
-    </div>
-  </div>
-  <!-- Add this line before the closing </body> tag -->
-  <button id="copy-all">Copy All</button>
-  <script src="/js/myprompt.js"></script>
-</body>
+    <!-- Add this line before the closing </body> tag -->
+    <button id="copy-all">Copy All</button>
+    <script src="/js/myprompt.js"></script>
+  </body>
 </html>
-
