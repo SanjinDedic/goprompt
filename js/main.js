@@ -11,20 +11,6 @@ for (let btn of editPromptButtons) {
   });
 }
 
-function loadPromptContent(index, element) {
-  fetch(`/txt/p${index + 1}.txt`)
-    .then((response) => response.text())
-    .then((data) => {
-      const savedContent = localStorage.getItem(`prompt${index}`);
-      element.textContent = savedContent !== null ? savedContent : data;
-    });
-}
-document.addEventListener("DOMContentLoaded", () => {
-  const prompts = document.getElementsByClassName("prompt");
-  for (let i = 0; i < prompts.length; i++) {
-    loadPromptContent(i, prompts[i]);
-  }
-});
 async function handleCredentialResponse(response) {
   const response2 = await fetch('https://cyber9.live/token', {
     method: 'POST',
@@ -36,7 +22,7 @@ async function handleCredentialResponse(response) {
   if (response2.ok) {
     const user = await response2.json();
     sessionStorage.setItem("user", JSON.stringify(user.email));
-    window.location.href = 'https://projectbingom8.sanjindedic.repl.co/pages/myprompt.html';
+    window.location.href = 'https://projectbingom11.sanjindedic.repl.co/pages/myprompt.html';
   } else {
     console.error('Error:', response2.statusText);
   }

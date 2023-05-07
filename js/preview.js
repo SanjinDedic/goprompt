@@ -1,6 +1,5 @@
 class PromptManager {
-    constructor(userEmail) {
-        this.userEmail = userEmail;
+    constructor() {
         this.apiUrl = "https://cyber9.live";
         this.tabLinks = document.getElementById("tab-links");
         this.tabContent = document.getElementById("tab-content");
@@ -14,36 +13,28 @@ class PromptManager {
 
     addEventListeners() {
         const addPromptBtn = document.getElementById("add-prompt");
-        const savePromptsBtn = document.getElementById("save-prompts");
         const addTabBtn = document.getElementById("add-tab");
         const tabLinks = document.getElementById("tab-links");
         const copyAllBtn = document.getElementById("copy-all");
-        const savePublicPromptsBtn = document.getElementById("public");
 
         if (addPromptBtn) addPromptBtn.addEventListener("click", () => this.addPromptToActiveTab());
-        if (savePromptsBtn) savePromptsBtn.addEventListener("click", () => this.savePrompts());
         if (addTabBtn) addTabBtn.addEventListener("click", () => this.createTab());
         if (tabLinks) {
             tabLinks.addEventListener("click", (event) => this.handleTabLinkClick(event));
             tabLinks.addEventListener("dblclick", (event) => this.handleTabLinkDblClick(event.target));
         }
         if (copyAllBtn) copyAllBtn.addEventListener("click", () => this.copyAllPrompts());
-        if (savePublicPromptsBtn) savePublicPromptsBtn.addEventListener("click", () => this.savePublicPrompts());
     }
     
 
-    async fetchPrompts() {
-        console.log("fetching prompts")
-        const userEmail = JSON.parse(sessionStorage.getItem("user"));
+    async fetchPublicPrompts() {
+        console.log("fetching public prompts");
         try {
-            const response = await fetch(`https://cyber9.live/get-prompts`, {
-                method: "POST",
+            const response = await fetch("https://cyber9.live/get-public-prompts", {
+                method: "GET",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({
-                    email: userEmail
-                }),
             });
             const prompts = await response.json();
             console.log(prompts);
@@ -53,37 +44,6 @@ class PromptManager {
         }
     }
     
-    async savePrompts() {
-        const userEmail = JSON.parse(sessionStorage.getItem("user"));
-        const tabs = document.querySelectorAll(".tab");
-        const promptsToSave = Array.from(tabs).flatMap((tab) => {
-            const promptContainers = tab.querySelectorAll(".prompt-container");
-            return Array.from(promptContainers).map((container) => {
-                const titleElement = container.querySelector(".prompt-title");
-                const codeElement = container.querySelector(".prompt");
-                return {
-                    email: userEmail,
-                    tab_name: container.dataset.tabName, // Use the dataset.tabName property
-                    title: titleElement.textContent,
-                    text: codeElement.textContent,
-                };
-            });
-        });
-        try {
-            const response = await fetch(`https://cyber9.live/save-prompts`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(promptsToSave),
-            });
-            const result = await response.json();
-            console.log(result);
-        } catch (error) {
-            console.error("Error saving prompts:", error);
-        }
-    }
-
 
     createPrompt(tabName, title, text) {
         const tabLink = document.querySelector(`#tab-links li[data-tab-id="${tabName}"]`);
@@ -137,25 +97,25 @@ class PromptManager {
     }
     async displayPrompts() {
         console.log("displayPrompts called");
-        const prompts = await this.fetchPrompts();
-        const maxTabNumber = prompts.reduce((max, prompt) => {
-            const tabNumber = parseInt(prompt.tab_name.split(" ")[1]);
-            return Math.max(max, tabNumber);
-        }, 0);
-        for (let i = 1; i <= maxTabNumber; i++) {
-            this.createTab(`Tab ${i}`);
+        const prompts = await this.fetchPublicPrompts();
+        const uniqueTabNames = Array.from(new Set(prompts.map(prompt => prompt.tab_name)));
+    
+        uniqueTabNames.forEach(tabName => this.createTab(tabName)); // Call createTab with tabName as argument
+    
+        if (uniqueTabNames.length > 0) {
+            this.switchTab(uniqueTabNames[0]);
         }
-        if (maxTabNumber > 0) {
-            this.switchTab(`Tab 1`);
-        }
+    
         for (const prompt of prompts) {
             this.createPrompt(prompt.tab_name, prompt.title, prompt.text);
         }
+    
         const firstTabLink = document.querySelector("#tab-links li");
         if (firstTabLink) {
             this.switchTab(firstTabLink.dataset.tabId);
         }
     }
+    
     handleTabLinkClick(event) {
         if (event.target.tagName === 'LI') {
             this.switchTab(event.target.dataset.tabId);
@@ -183,11 +143,6 @@ class PromptManager {
                 tab.classList.add("active");
             }
         }
-    }
-    if (savePromptsBtn) {
-        savePromptsBtn.addEventListener("click", () => {
-            savePrompts();
-        });
     }
 
     editTabName(tabLink) {
@@ -225,7 +180,7 @@ class PromptManager {
         }
     }
 
-    createTab(name) {
+   createTab(name) {
         console.log('tab being created')
         if (!name) {
             name = this.getNextTabId();
@@ -290,64 +245,40 @@ class PromptManager {
         });
     }
 
-    fetchPromptsToSave() {
-        const tabs = document.querySelectorAll(".tab");
-        return Array.from(tabs).flatMap((tab) => {
-            const promptContainers = tab.querySelectorAll(".prompt-container");
-            return Array.from(promptContainers).map((container) => {
-                const titleElement = container.querySelector(".prompt-title");
-                const codeElement = container.querySelector(".prompt");
-                return {
-                    prompt_title: titleElement.textContent,
-                    prompt_text: codeElement.textContent,
-                    tab_name: container.dataset.tabName,
-                };
-            });
-        });
-    }
-    async savePublicPrompts() {
-        const title = prompt("Enter the collection title:");
-        const userEmail = JSON.parse(sessionStorage.getItem("user"))
-        console.log("attempting to publish");
-        console.log(title);
-        console.log(userEmail);
-        try {
-            const response = await fetch("https://cyber9.live/public-collection", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email: userEmail,
-                    public_title: title
-                })
-            });
-    
-            if (response.ok) {
-                const result = await response.json();
-                console.log(result);
-            } else {
-                console.error("Error publishing prompts:", response.status, response.statusText);
-            }
-        } catch (error) {
-            console.error("Error in savePublicPrompts:", error);
-        }
-    }
-
 }
 document.addEventListener("DOMContentLoaded", async function() {
-    const userEmail = JSON.parse(sessionStorage.getItem("user"));
-    if (userEmail) {
-        const promptManager = new PromptManager(userEmail);
-        await promptManager.displayPrompts();
-    } else {
-        console.error("User email not available in sessionStorage");
-    }
+    const promptManager = new PromptManager();
+    await promptManager.displayPrompts();
 });
 
-function signOut() {
-        //this.googleAuth.signOut().then(() => {
-        sessionStorage.removeItem("user"); // Remove user data from sessionStorage
-        console.log("User signed out.");
-        window.location.href = "https://projectbingom11.sanjindedic.repl.co/index.html";
+
+
+async function handleCredentialResponse(response) {
+    const response2 = await fetch('https://cyber9.live/token', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Bearer ' + response.credential
+        }
+    });
+    if (response2.ok) {
+        const user = await response2.json();
+        sessionStorage.setItem("user", JSON.stringify(user.email));
+        window.location.href = 'https://projectbingom8.sanjindedic.repl.co/pages/myprompt.html';
+    } else {
+        console.error('Error:', response2.statusText);
     }
+}
+
+function onGAPILoad() {
+    google.accounts.id.initialize({
+        client_id: "501150822446-s7mo1cp2sdj8nv1pclq5t7774j1a41h2.apps.googleusercontent.com",
+        callback: handleCredentialResponse
+    });
+    google.accounts.id.renderButton(
+        document.getElementById("buttonDiv"), {
+            theme: "outline",
+            size: "large"
+        }
+    );
+}
