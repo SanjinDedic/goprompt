@@ -308,6 +308,7 @@ class PromptManager {
     async savePublicPrompts() {
         const title = prompt("Enter the collection title:");
         const userEmail = JSON.parse(sessionStorage.getItem("user"))
+        alert("Your prompts are set to public, pending review they will be added to public collection")
         console.log("attempting to publish");
         console.log(title);
         console.log(userEmail);
@@ -349,5 +350,5 @@ function signOut() {
         //this.googleAuth.signOut().then(() => {
         sessionStorage.removeItem("user"); // Remove user data from sessionStorage
         console.log("User signed out.");
-        window.location.href = "https://projectbingom11.sanjindedic.repl.co/index.html";
+        window.location.href = logouturl;
     }

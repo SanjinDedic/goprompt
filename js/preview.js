@@ -16,7 +16,10 @@ class PromptManager {
         const addTabBtn = document.getElementById("add-tab");
         const tabLinks = document.getElementById("tab-links");
         const copyAllBtn = document.getElementById("copy-all");
-
+        const downloadJsonBtn = document.getElementById("download-json");
+                
+        
+        if (downloadJsonBtn) downloadJsonBtn.addEventListener("click", () => this.downloadJSON())
         if (addPromptBtn) addPromptBtn.addEventListener("click", () => this.addPromptToActiveTab());
         if (addTabBtn) addTabBtn.addEventListener("click", () => this.createTab());
         if (tabLinks) {
@@ -30,12 +33,13 @@ class PromptManager {
     async fetchPublicPrompts() {
         console.log("fetching public prompts");
         try {
-            const response = await fetch("https://cyber9.live/get-public-prompts", {
+            const response = await fetch("/public.json", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
                 },
             });
+            console.log(response)
             const prompts = await response.json();
             console.log(prompts);
             return prompts;
@@ -43,6 +47,8 @@ class PromptManager {
             console.error("Error fetching prompts:", error);
         }
     }
+
+
     
 
     createPrompt(tabName, title, text) {
@@ -245,7 +251,43 @@ class PromptManager {
         });
     }
 
+    downloadJSON() {
+        const collectionTitle = JSON.parse(sessionStorage.getItem("collection_title"));
+        const tabs = document.querySelectorAll(".tab");
+        const promptsToSave = Array.from(tabs).flatMap((tab) => {
+            const promptContainers = tab.querySelectorAll(".prompt-container");
+            return Array.from(promptContainers).map((container) => {
+                const titleElement = container.querySelector(".prompt-title");
+                const codeElement = container.querySelector(".prompt");
+                return {
+                    collection_title: collectionTitle,
+                    tab_name: container.dataset.tabName, // Use the dataset.tabName property
+                    title: titleElement.textContent,
+                    text: codeElement.textContent,
+                };
+            });
+        });
+    
+        // Creating a blob object from the JSON content
+        const blob = new Blob([JSON.stringify(promptsToSave, null, 2)], {type : 'application/json'});
+        // Creating an URL for the blob object
+        const url = URL.createObjectURL(blob);
+        // Creating a link element
+        const link = document.createElement('a');
+        // Setting the download attribute of the link element
+        link.download = 'public.json';
+        // Setting the href of the link to be the blob URL
+        link.href = url;
+        // Appending the link to the document
+        document.body.appendChild(link);
+        // Simulating a click to download the file
+        link.click();
+        // Removing the link from the document
+        document.body.removeChild(link);
+    }
+
 }
+
 document.addEventListener("DOMContentLoaded", async function() {
     const promptManager = new PromptManager();
     await promptManager.displayPrompts();
@@ -264,7 +306,7 @@ async function handleCredentialResponse(response) {
     if (response2.ok) {
         const user = await response2.json();
         sessionStorage.setItem("user", JSON.stringify(user.email));
-        window.location.href = 'https://projectbingom8.sanjindedic.repl.co/pages/myprompt.html';
+        window.location.href = loginurl;
     } else {
         console.error('Error:', response2.statusText);
     }
@@ -282,3 +324,12 @@ function onGAPILoad() {
         }
     );
 }
+
+function showAlert() {
+        alert("Login to use this feature (it's free!)");
+      }
+      
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('save-prompts').addEventListener('click', showAlert);
+    document.getElementById('public').addEventListener('click', showAlert);
+      });

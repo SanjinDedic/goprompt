@@ -1,3 +1,6 @@
+
+
+
 const editPromptButtons = document.getElementsByClassName("edit-prompt");
 for (let btn of editPromptButtons) {
   btn.addEventListener("click", () => {
@@ -22,7 +25,7 @@ async function handleCredentialResponse(response) {
   if (response2.ok) {
     const user = await response2.json();
     sessionStorage.setItem("user", JSON.stringify(user.email));
-    window.location.href = 'https://projectbingom11.sanjindedic.repl.co/pages/myprompt.html';
+    window.location.href = loginurl;
   } else {
     console.error('Error:', response2.statusText);
   }

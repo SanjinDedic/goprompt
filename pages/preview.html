@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/public.css">
     <title>Prompt Collection</title>
     <link rel="stylesheet" href="/css/myprompt.css">
+      <script src="/js/redirects.js"></script>
     <script src="/js/preview.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer onload="onGAPILoad()"></script>
   </head>
@@ -19,6 +19,10 @@
       </div>
     </nav>
     <button id="add-tab">Add Tab</button>
+    <button id="save-prompts">Save Prompt Collection</button>
+    <button id="public">Publish Prompt Collection</button>
+    <button id="download-json">Download JSON</button>
+    <div id="info-bar" style="display: inline-block; margin-left: 10px; font-weight: bold;">Preview mode - Log in to save your prompts</div>
     <div class="tabs">
       <ul id="tab-links">
         <!-- Tab links will be added dynamically -->
