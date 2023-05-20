@@ -348,7 +348,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
 function signOut() {
         //this.googleAuth.signOut().then(() => {
-        sessionStorage.removeItem("user"); // Remove user data from sessionStorage
+        window.location.href = 'https://goprompt.io/index.html';
+        sessionStorage.removeItem("user"); 
         console.log("User signed out.");
-        window.location.href = logouturl;
     }

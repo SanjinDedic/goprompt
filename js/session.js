@@ -1,4 +1,4 @@
-class PromptManager {
+class PromptM {
     constructor() {
         this.apiUrl = "https://cyber9.live";
         this.tabLinks = document.getElementById("tab-links");
@@ -32,7 +32,7 @@ class PromptManager {
     async fetchPublicPrompts() {
         console.log("fetching public prompts");
         try {
-            const response = await fetch("/public.json", {
+            const response = await fetch("/livestream1.json", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -274,7 +274,7 @@ class PromptManager {
         // Creating a link element
         const link = document.createElement('a');
         // Setting the download attribute of the link element
-        link.download = 'public.json';
+        link.download = 'livestream.json';
         // Setting the href of the link to be the blob URL
         link.href = url;
         // Appending the link to the document
@@ -288,7 +288,7 @@ class PromptManager {
 }
 
 document.addEventListener("DOMContentLoaded", async function() {
-    const promptManager = new PromptManager();
+    const promptManager = new PromptM();
     await promptManager.displayPrompts();
 });
 

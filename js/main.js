@@ -1,19 +1,3 @@
-
-
-
-const editPromptButtons = document.getElementsByClassName("edit-prompt");
-for (let btn of editPromptButtons) {
-  btn.addEventListener("click", () => {
-    const codeElement = btn.parentElement.nextElementSibling.children[0];
-    const promptIndex = Array.prototype.indexOf.call(editPromptButtons, btn);
-    codeElement.contentEditable = codeElement.contentEditable === "true" ? "false" : "true";
-    btn.textContent = codeElement.contentEditable === "true" ? "Save" : "Edit";
-    if (codeElement.contentEditable === "false") {
-      localStorage.setItem(`prompt${promptIndex}`, codeElement.textContent);
-    }
-  });
-}
-
 async function handleCredentialResponse(response) {
   const response2 = await fetch('https://cyber9.live/token', {
     method: 'POST',
@@ -25,7 +9,7 @@ async function handleCredentialResponse(response) {
   if (response2.ok) {
     const user = await response2.json();
     sessionStorage.setItem("user", JSON.stringify(user.email));
-    window.location.href = loginurl;
+    window.location.href = 'https://goprompt.io/pages/myprompt.html';
   } else {
     console.error('Error:', response2.statusText);
   }

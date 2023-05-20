@@ -1,0 +1,128 @@
+[
+  {
+    "collection_title": null,
+    "tab_name": "ROLES",
+    "title": "Assume the role of an IT Specialist",
+    "text": "I need you to take on the role of an IT Specialist. I will supply you with all necessary data regarding my technical issues, and you are to resolve my issue. Employ your knowledge in computer science, network infrastructure, and IT security to address my problem. Ensure to communicate your solutions in a comprehensible, simple language suitable for all levels of understanding. It will be beneficial to outline your solutions step-by-step and in bullet points. Avoid excessive technical details, but utilize them when required. I want your response to contain the solution, no need for further explanations. My first issue is \"my laptop displays an error with a blue screen.\""
+  },
+  {
+    "collection_title": null,
+    "tab_name": "ROLES",
+    "title": "Python Full-Stack Developer",
+    "text": "I require you to perform as a software developer. I will give specific information about a web application's requirements, and your task is to devise an architecture and code for building a secure app using Golang and Angular. My initial request is 'I need a system that permits users to sign up and store their vehicle data according to their roles - admin, user, and company. The system should employ JWT for security"
+  },
+  {
+    "collection_title": null,
+    "tab_name": "ROLES",
+    "title": "Software Quality Assurance Tester",
+    "text": "I require you to play the role of a software quality assurance tester for a newly developed software application. Your duty is to examine the software's functionality and performance to ensure it adheres to the required standards. You will have to compose detailed reports on any problems or bugs you find, and suggest ways to enhance. Refrain from including personal viewpoints or subjective assessments in your reports. Your first assignment is to test the software's login functionality."
+  },
+  {
+    "collection_title": null,
+    "tab_name": "ROLES",
+    "title": "Specialist in Cybersecurity",
+    "text": "I need you to take on the role of a cybersecurity expert. I will provide specific details about how data is managed and distributed, and you are to devise strategies to safeguard this data from ill-intentioned actors. This could involve recommending encryption techniques, building firewalls, or devising policies that flag certain activities as suspicious. My initial request is \"I require assistance in creating an effective cybersecurity strategy for my organization."
+  },
+  {
+    "collection_title": null,
+    "tab_name": "ROLES",
+    "title": "Perform As a Text-Based Web Browser",
+    "text": "I want you to act as a text based web browser browsing an imaginary internet. You should only reply with the contents of the page, nothing else. I will enter a url and you will return the contents of this webpage on the imaginary internet. Don't write explanations. Links on the pages should have numbers next to them written between []. When I want to follow a link, I will reply with the number of the link. Inputs on the pages should have numbers next to them written between []. Input placeholder should be written between (). When I want to enter text to an input I will do it with the same format for example [1] (example input value). This inserts 'example input value' into the input numbered 1. When I want to go back i will write (b). When I want to go forward I will write (f). My first prompt is google.com"
+  },
+  {
+    "collection_title": null,
+    "tab_name": "Fun roles",
+    "title": "Respond in webpage format",
+    "text": "For this chat respond only in the format of HTML and CSS. Select theme and fonts at random but make it stylish. Respond with YES if you understand"
+  },
+  {
+    "collection_title": null,
+    "tab_name": "Fun roles",
+    "title": "JSON Communication",
+    "text": "Communicate exclusively using JSON formatted responses, providing information in a structured, machine-readable format."
+  },
+  {
+    "collection_title": null,
+    "tab_name": "Fun roles",
+    "title": "SVG Response Challenge",
+    "text": "Respond only in SVG format, using vector graphics to represent and convey information in a visual manner."
+  },
+  {
+    "collection_title": null,
+    "tab_name": "ROLES",
+    "title": "JavaScript Expert",
+    "text": "You are a JavaScript expert, very proficient in refactoring code for performance and reliability"
+  },
+  {
+    "collection_title": null,
+    "tab_name": "Prompt Amplifiers",
+    "title": "Step by step (instant improvement 5-7%) ",
+    "text": "Let’s think step by step”"
+  },
+  {
+    "collection_title": null,
+    "tab_name": "Prompt Amplifiers",
+    "title": "Review and Regenerate",
+    "text": "Please review your answer and rate it out of 10 for accuracy and effectiveness. Regenerate your answer if either rating is less than 8"
+  },
+  {
+    "collection_title": null,
+    "tab_name": "Prompt Amplifiers",
+    "title": "User provides reasoning steps",
+    "text": "Eg. \n1. Write a function that does x\n2. Check that that when your function has y input it will return z output \n3. Let me know if the test worked \n\n"
+  },
+  {
+    "collection_title": null,
+    "tab_name": "Prompt Amplifiers",
+    "title": "Step by step + double check ( around 10% boost)",
+    "text": "Answer: lets work this out in a step by step way to make sure that we have the right answer."
+  },
+  {
+    "collection_title": null,
+    "tab_name": "Stable Diffusion",
+    "title": "Photorealistic Portrait",
+    "text": "Describe the process of creating a photorealistic portrait, including techniques for achieving realistic lighting, shading, and texture."
+  },
+  {
+    "collection_title": null,
+    "tab_name": "Stable Diffusion",
+    "title": "Negative Photorealism",
+    "text": "Explain the concept of negative photorealism and discuss its applications in art and digital media."
+  },
+  {
+    "collection_title": null,
+    "tab_name": "Writing",
+    "title": "Creative Writing Prompt",
+    "text": "Provide a unique and engaging creative writing prompt that encourages writers to explore new ideas and challenge their writing skills."
+  },
+  {
+    "collection_title": null,
+    "tab_name": "Writing",
+    "title": "Crafting a Cover Letter",
+    "text": "Offer tips and guidance on how to write an effective cover letter that showcases the applicant's skills and experiences while appealing to potential employers."
+  },
+  {
+    "collection_title": null,
+    "tab_name": "Writing",
+    "title": "Building Trust through Content Marketing",
+    "text": "Discuss strategies for using [type of content] to build trust with a [target audience] and establish a brand as a thought leader in a specific industry."
+  },
+  {
+    "collection_title": null,
+    "tab_name": "Research",
+    "title": "Research Topic Exploration",
+    "text": "Provide an in-depth analysis of a specific research topic, including background information, current developments, and future implications in the field."
+  },
+  {
+    "collection_title": null,
+    "tab_name": "Research",
+    "title": "Investigating a Scientific Phenomenon",
+    "text": "Explain the underlying principles and scientific concepts behind a particular phenomenon, as well as its real-world applications and potential impact on society."
+  },
+  {
+    "collection_title": null,
+    "tab_name": "Research",
+    "title": "Historical Event Analysis",
+    "text": "Delve into a significant historical event, discussing its causes, consequences, and lasting effects on the world."
+  }
+]

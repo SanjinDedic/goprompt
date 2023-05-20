@@ -13,12 +13,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f5f5f5;
+  background-color: #282A36; /* Dracula background color */
+  color: #F8F8F2;
 }
 
 h1 {
   margin: 60px 0;
-  color: #333;
+  color: #F8F8F2; /* Dracula foreground color */
   font-weight: bold;
   font-size: 2.5rem;
 }
@@ -28,54 +29,19 @@ h1 {
   margin: 0 auto;
   min-height: 1000px;
   padding: 20px;
-}
-
-.button-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.prompt-container {
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 20px;
-  width: 80%;
-  max-width: 600px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.edit-prompt {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 8px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  margin-left: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.container {
   flex-grow: 1;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
 }
 
 nav {
   display: flex;
   justify-content: center;
-  background-color: #0a3d62;
-  padding: 10px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #474a5c; /* Dracula selection color */
+  padding: 12px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Dracula shadows are darker */
   width: 100%;
   position: fixed;
   top: 0;
@@ -89,24 +55,21 @@ nav {
   justify-content: center;
   padding: 0 20px;
   box-sizing: border-box;
+  color: #F8F8F2; /* Dracula foreground color */
 }
 
 .nav-link {
-  margin: 0 40px; /* Increase the margin values */
+  margin: 0 40px;
   text-decoration: none;
-  color: #fff;
+  color: #F8F8F2; /* Dracula foreground color */
   font-weight: bold;
   font-size: 1.1rem;
   padding: 0 5px;
   position: relative;
 }
 
-.nav-link:last-child {
-  border-right: none;
-}
-
 .nav-link:hover {
-  color: #4CAF50;
+  color: #8BE9FD; /* Dracula functions/methods color for hover */
 }
 
 .spacer {
@@ -118,14 +81,35 @@ footer {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: #0a3d62;
-  padding: 20px 0;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #474a5c; /* Dracula selection color */
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5); /* Dracula shadows are darker */
   width: 100%;
+  margin: 0;
+  z-index: 100;
+  bottom: 0;
+  min-height: 40px; /* Add this line */
+  max-width: 100%;
+  position: fixed; /* Added this line */
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 0;
+  background-color: #f5f5f5;
+  border-top: 1px solid #e5e5e5;
 }
 
-footer p {
-  margin: 5px 0;
-  color: #fff;
-  font-size: 1.1rem;
+.footer-links a {
+  margin: 0 15px;
+  color: #333;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #007bff;
+}
+
+.privacy-policy {
+  padding-top: 90px;
 }
