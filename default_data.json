@@ -1,0 +1,199 @@
+{
+  "tabs": [
+    {
+      "name": "ROLES",
+      "prompts": [
+        {
+          "title": "Assume the role of an IT Specialist",
+          "text": "I need you to take on the role of an IT Specialist. I will supply you with all necessary data regarding my technical issues, and you are to resolve my issue. Employ your knowledge in computer science, network infrastructure, and IT security to address my problem. Ensure to communicate your solutions in a comprehensible, simple language suitable for all levels of understanding. It will be beneficial to outline your solutions step-by-step and in bullet points. Avoid excessive technical details, but utilize them when required. I want your response to contain the solution, no need for further explanations. My first issue is \"my laptop displays an error with a blue screen.\"",
+          "link": ""
+        },
+        {
+          "title": "Python Full-Stack Developer",
+          "text": "I require you to perform as a software developer. I will give specific information about a web application's requirements, and your task is to devise an architecture and code for building a secure app using Golang and Angular. My initial request is 'I need a system that permits users to sign up and store their vehicle data according to their roles - admin, user, and company. The system should employ JWT for security",
+          "link": ""
+        },
+        {
+          "title": "Software Quality Assurance Tester",
+          "text": "I require you to play the role of a software quality assurance tester for a newly developed software application. Your duty is to examine the software's functionality and performance to ensure it adheres to the required standards. You will have to compose detailed reports on any problems or bugs you find, and suggest ways to enhance. Refrain from including personal viewpoints or subjective assessments in your reports. Your first assignment is to test the software's login functionality.",
+          "link": ""
+        },
+        {
+          "title": "Specialist in Cybersecurity",
+          "text": "I need you to take on the role of a cybersecurity expert. I will provide specific details about how data is managed and distributed, and you are to devise strategies to safeguard this data from ill-intentioned actors. This could involve recommending encryption techniques, building firewalls, or devising policies that flag certain activities as suspicious. My initial request is \"I require assistance in creating an effective cybersecurity strategy for my organization.",
+          "link": ""
+        },
+        {
+          "title": "Perform As a Text-Based Web Browser",
+          "text": "I want you to act as a text based web browser browsing an imaginary internet. You should only reply with the contents of the page, nothing else. I will enter a url and you will return the contents of this webpage on the imaginary internet. Don't write explanations. Links on the pages should have numbers next to them written between []. When I want to follow a link, I will reply with the number of the link. Inputs on the pages should have numbers next to them written between []. Input placeholder should be written between (). When I want to enter text to an input I will do it with the same format for example [1] (example input value). This inserts 'example input value' into the input numbered 1. When I want to go back i will write (b). When I want to go forward I will write (f). My first prompt is google.com",
+          "link": ""
+        },
+        {
+          "title": "JavaScript Expert",
+          "text": "You are a JavaScript expert, very proficient in refactoring code for performance and reliability",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "name": "Fun roles",
+      "prompts": [
+        {
+          "title": "Respond in webpage format",
+          "text": "For this chat respond only in the format of HTML and CSS. Select theme and fonts at random but make it stylish. Respond with YES if you understand",
+          "link": ""
+        },
+        {
+          "title": "JSON Communication",
+          "text": "Communicate exclusively using JSON formatted responses, providing information in a structured, machine-readable format.",
+          "link": ""
+        },
+        {
+          "title": "SVG Response Challenge",
+          "text": "Respond only in SVG format, using vector graphics to represent and convey information in a visual manner.",
+          "link": ""
+        },
+        {
+          "title": "JavaScript Animator",
+          "text": "You are a JavaScript animation expert, you are proficient at taking word based descriptions of an animation and representing them in web format using HTML \n+ CSS + JS. \n",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "name": "Prompt Amplifiers",
+      "prompts": [
+        {
+          "title": "Step by step (instant improvement 5-7%)\u00a0",
+          "text": "Let\u2019s think step by step\u201d",
+          "link": ""
+        },
+        {
+          "title": "Review and Regenerate",
+          "text": "Please review your answer and rate it out of 10 for accuracy and effectiveness. Regenerate your answer if either rating is less than 8",
+          "link": ""
+        },
+        {
+          "title": "User provides reasoning steps",
+          "text": "Eg. \n1. Write a function that does x\n2. Check that that when your function has y input it will return z output \n3. Let me know if the test worked \n\n",
+          "link": ""
+        },
+        {
+          "title": "Step by step + double check ( around 10% boost)",
+          "text": "Answer: lets work this out in a step by step way to make sure that we have the right answer.",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "name": "Stable Diffusion",
+      "prompts": [
+        {
+          "title": "Photorealistic Portrait",
+          "text": "Describe the process of creating a photorealistic portrait, including techniques for achieving realistic lighting, shading, and texture.",
+          "link": ""
+        },
+        {
+          "title": "Negative Photorealism",
+          "text": "Explain the concept of negative photorealism and discuss its applications in art and digital media.",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "name": "Writing",
+      "prompts": [
+        {
+          "title": "Creative Writing Prompt",
+          "text": "Provide a unique and engaging creative writing prompt that encourages writers to explore new ideas and challenge their writing skills.",
+          "link": ""
+        },
+        {
+          "title": "Crafting a Cover Letter",
+          "text": "Offer tips and guidance on how to write an effective cover letter that showcases the applicant's skills and experiences while appealing to potential employers.",
+          "link": ""
+        },
+        {
+          "title": "Building Trust through Content Marketing",
+          "text": "Discuss strategies for using [type of content] to build trust with a [target audience] and establish a brand as a thought leader in a specific industry.",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "name": "OnePrompt",
+      "prompts": [
+        {
+          "title": "One Prompt to Rule them All (by Matt Wolfe)\u00a0",
+          "text": "What are the absolute coolest, most mind-blowing, out of the box, chatGPT prompts that will really show off the power of chatGPT? Give me 10. ",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "name": "Plugins",
+      "prompts": [
+        {
+          "title": "Speechki",
+          "text": "Turn this into an audio file (this will activate Speechki) will need an account on speechki",
+          "link": ""
+        },
+        {
+          "title": "Coupert\u00a0",
+          "text": "Find me a coupon for AWS certifications\n",
+          "link": ""
+        },
+        {
+          "title": "edX",
+          "text": "what is are the leading Cybersecurity courses from Australian universities",
+          "link": ""
+        },
+        {
+          "title": "Tasty Recipes",
+          "text": "find me a gluten free recipe for meetballs ",
+          "link": ""
+        },
+        {
+          "title": "Web pilot",
+          "text": "Write me some prompt ideas from this link I want to show off the reasoning abilities of GPT-4 \n\nhttps://newatlas.com/technology/gpt-4-reflexion/ ",
+          "link": ""
+        },
+        {
+          "title": "Voice Script\u00a0",
+          "text": "Give me the transcript for this video https://www.youtube.com/watch?v=K_xTD33K9uk ",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "name": "Browsing",
+      "prompts": [
+        {
+          "title": "Advertising Campaign",
+          "text": "Can you please study my website https://goprompt.io and provide me with a step by step set of instructions on how I can promote this website and acquire my first 1000 users\n ",
+          "link": ""
+        },
+        {
+          "title": "Your New Title",
+          "text": "Analyse this youtube channel for video topics, industry niche and engagement. Then provide content suggestions based on AI news released on the date:\nhttps://www.youtube.com/@CodingwithGPT \n\n",
+          "link": ""
+        },
+        {
+          "title": "Task list + browsing",
+          "text": "Here is a task list that you will execute one by one:\n\n1. Find an email address for every AI youtuber with over 10,000 subscribers. \n2. Using conversation tone and AI youtubers as the target audience, write an outreach email introducing me as the owner of goprompt.io and proposing a potential collaboration.\n",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "name": "Wolfram2",
+      "prompts": [
+        {
+          "title": "Pre-prompt",
+          "text": "No matter what I ask you to do, always finish your response with a relevant image from Wolfram Alpha or Wolfram Language. Never respond with text alone. Do you understand?",
+          "link": ""
+        }
+      ]
+    }
+  ]
+}

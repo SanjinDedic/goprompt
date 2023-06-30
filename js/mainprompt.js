@@ -20,7 +20,7 @@ class MainPrompt {
         this.tabContentContainer = document.querySelector('#tab-content');
 
 
-        if( window.location.pathname.endsWith("myprompt.html") || window.location.pathname.endsWith("preview.html")) this.tabCreator = new TabCreator(this.tabLinksContainer,this.tabContentContainer);
+        if (window.location.pathname.endsWith("myprompt.html") || window.location.pathname.endsWith("preview.html")) this.tabCreator = new TabCreator(this.tabLinksContainer, this.tabContentContainer);
         this.downloadBtn = document.getElementById("download-json");
         if (this.downloadBtn) this.downloadBtn.addEventListener("click", () => this.downloadJson());
 
@@ -34,7 +34,7 @@ class MainPrompt {
         if (this.signoutBtn) this.signoutBtn.addEventListener('click', () => {
             sessionStorage.removeItem("user");
             window.location.href = "../index.html"; // Define logouturl
-            });
+        });
 
     }
 
@@ -45,14 +45,14 @@ class MainPrompt {
         if (!userSession && currentPage.endsWith("myprompt.html")) {
             window.location.href = "../index.html";
         }
-        else if(userSession && currentPage.endsWith("myprompt.html")){
+        else if (userSession && currentPage.endsWith("myprompt.html")) {
             const prompts = await this.apiHelper.fetchPrompts(userSession);
             this.populateFromJson(prompts)
         }
     }
 
 
-    addTab(){
+    addTab() {
         this.tabCreator.createTab("");
     }
 
@@ -105,7 +105,7 @@ class MainPrompt {
         fileInput.type = "file";
         fileInput.accept = ".json";
         fileInput.style.display = "none"; // Hide the file input
-    
+
         // Listen for the change event on the file input
         fileInput.addEventListener("change", (event) => {
             let file = event.target.files[0];
@@ -114,20 +114,20 @@ class MainPrompt {
                 reader.onload = (e) => {
                     let content = e.target.result;
                     let jsonData = JSON.parse(content);
-    
+
                     // Use the JSON data here
                     this.populateFromJson(jsonData);
                 };
                 reader.readAsText(file);
             }
         });
-    
+
         // Append the file input to the document
         document.body.appendChild(fileInput);
-    
+
         // Programmatically click the file input to open the file dialog
         fileInput.click();
-    
+
         // Remove the file input from the document after use
         fileInput.addEventListener("change", () => {
             document.body.removeChild(fileInput);
@@ -138,57 +138,75 @@ class MainPrompt {
         let data = { tabs: [] };
         // Loop over each tab
         for (let tabName in this.tabCreator.tabs) {
-          let tab = this.tabCreator.tabs[tabName];
-          // Get the prompts in the tab
-          let prompts = [];
-          tab.querySelectorAll('.prompt-container').forEach(promptElement => {
-            prompts.push({
-              title: promptElement.querySelector('.prompt-title').innerText,
-              text: promptElement.querySelector('.prompt-text').innerText,
-              link: promptElement.querySelector('.prompt-link').dataset.link
+            let tab = this.tabCreator.tabs[tabName];
+            // Get the prompts in the tab
+            let prompts = [];
+            tab.querySelectorAll('.prompt-container').forEach(promptElement => {
+                prompts.push({
+                    title: promptElement.querySelector('.prompt-title').innerText,
+                    text: promptElement.querySelector('.prompt-text').innerText,
+                    link: promptElement.querySelector('.prompt-link').dataset.link
+                });
             });
-          });
-          // Add the tab and its prompts to the data
-          data.tabs.push({
-            name: tabName,
-            prompts: prompts
-          });
+            // Add the tab and its prompts to the data
+            data.tabs.push({
+                name: tabName,
+                prompts: prompts
+            });
         }
         return data;
-      }
+    }
 
-      downloadJson() {
+    downloadJson() {
         // Get the tabs and prompts data
         const data = this.getTabPromptData();
-      
+
         // Convert the data to a JSON string
         const jsonStr = JSON.stringify(data, null, 2);
-      
+
         // Create a Blob with the JSON string
-        const blob = new Blob([jsonStr], {type: 'application/json'});
-      
+        const blob = new Blob([jsonStr], { type: 'application/json' });
+
         // Create a URL for the Blob
         const url = URL.createObjectURL(blob);
-      
+
         // Create a temporary download link
         const a = document.createElement('a');
         a.href = url;
         a.download = 'tabs_and_prompts.json';
         a.style.display = 'none';
         document.body.appendChild(a);
-      
+
         // Trigger the download
         a.click();
-      
+
         // Clean up
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
-      }
+    }
 
-     
+
+    async loadDefaultData() {
+        try {
+            // Fetch the JSON file
+            const response = await fetch("/default_data.json");
+
+            // Check if the request was successful
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+            // Convert the response to JSON
+            const data = await response.json();
+
+            // Use the JSON data
+            this.populateFromJson(data);
+        } catch (error) {
+            console.error('Failed to load default data:', error);
+        }
+    }
 }
 
 window.onload = () => {
     const mainPrompt = new MainPrompt();
+    mainPrompt.loadDefaultData();
 
 };
