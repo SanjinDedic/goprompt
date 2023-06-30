@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="stylesheet" rel="stylesheet" href="/css/main.css">
+    <title>Stats Page</title>
+    <script src="/js/redirects.js"></script>
+    <script src="/js/stats.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer onload="onGAPILoad()"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="/pages/preview.html" class="nav-link">Preview</a>
+        <a href="/pages/privacy.html" class="nav-link">Privacy Policy</a>
+        <a href="/pages/report.html" class="nav-link" id="reportBugButton" target="_blank">🐞 Report a Bug</a>
+        <div class="spacer"></div>
+        <a href="#" class="nav-link" id="buttonDiv">Login</a>
+      </div>
+    </nav>
+    <div class="container">
+      <h1>Site Statistics</h1>
+      <div id="statsContainer">
+        <div class="statCard">
+          <h2>Total Users</h2>
+          <p id="totalUsers">Fetching...</p>
+        </div>
+        <div class="statCard">
+          <h2>Total Prompts</h2>
+          <p id="totalPrompts">Fetching...</p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      Goprompt.io by Sanjin Dedic 2023 ©
+    </footer>
+    
+  </body>
+</html>

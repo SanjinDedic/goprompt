@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Area</title>
+    <link rel="stylesheet" href="/css/myprompt.css">
+    
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="/pages/preview.html" class="nav-link">Preview</a>
+        <a href="/pages/privacy.html" class="nav-link">Privacy Policy</a>
+        <a href="/pages/report.html" class="nav-link" id="reportBugButton" target="_blank">🐞 Report a Bug</a>
+        <div class="spacer"></div>
+        <button id="sign-out" class="google-sign-out">Sign Out</button>
+      </div>
+    </nav>
+    <button id="add-tab">Add Tab</button>
+    <button id="save-prompts">Save Prompt Collection</button>
+    <button id="public">Publish Prompt Collection</button>
+    <div class="tabs">
+      <ul id="tab-links">
+        <!-- Tab links will be added dynamically -->
+      </ul>
+      <div id="tab-content">
+        <!-- Tab content will be added dynamically -->
+      </div>
+    </div>
+    <!-- Add this line before the closing tag -->
+    <button id="copy-all">Copy All</button>
+      <script type="module" src="/js/mainprompt.js"></script>
+    <footer>
+      Goprompt.io by Sanjin Dedic 2023 ©    
+    </footer>
+  </body>
+</html>

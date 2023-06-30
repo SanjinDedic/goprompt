@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="stylesheet" rel="stylesheet" href="/css/main.css">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Prompt Collection</title>
+    <script type="module" src="/js/mainprompt.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="/pages/preview.html" class="nav-link">Preview</a>
+        <a href="/pages/privacy.html" class="nav-link">Privacy Policy</a>
+        <a href="/pages/report.html" class="nav-link" id="reportBugButton" target="_blank">🐞 Report a Bug</a>
+        <div class="spacer"></div>
+        <a href="#" class="nav-link" id="buttonDiv">Login</a>
+      </div>
+    </nav>
+    <div id="buttonDiv"></div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <p>I have read and agreed to the Privacy Policy</p>
+            <input type="checkbox" id="privacyPolicyAgree" name="privacyPolicyAgree">
+            <p>Opt in for the email list</p>
+            <input type="checkbox" id="emailOptIn" name="emailOptIn">
+            <button id="submitButton">Submit</button>
+        </div>
+    </div>
+    <div class="container">
+      <h1>All your chatGPT prompts in one place</h1>
+      <div class="video-container">
+        <video controls>
+          <source src="/goprompt_intro.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p> With goprompt.io it is easy to create and maintain your own prompt collection. Its like an interactive prompt notebook that is always with you. You can create multiple tabs to store your prompts and edit them easily.Just log in with google and your prompt collection is there in one click! </p>
+      <h2>Features:</h2>
+      <ul>
+        <li>Create and organize prompts in customizable tabs</li>
+        <li>Edit prompt titles and content</li>
+        <li>Save prompts to your account</li>
+        <li>Quickly copy prompt content to the clipboard</li>
+        <li>Securely sign in with your Google account</li>
+      </ul>
+      <p> To get started, sign in using the "Login" button in the navigation bar. Once you're logged in, you'll be redirected to your personal prompt collection, where you can add and organize prompts across different tabs. </p>
+    </div>
+
+      <footer>
+      Goprompt.io by Sanjin Dedic 2023 ©   
+      </footer>
+    
+  </body>
+</html>
