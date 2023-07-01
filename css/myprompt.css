@@ -1,246 +1,266 @@
 body {
-    font-family: 'Roboto', Arial, sans-serif;
-    margin: 60px 40px 40px 40px;
-    color: #F8F8F2; 
-    background-color: #282A36; 
-  }
-  
-  button {
-    font-family: 'Roboto', Arial, sans-serif;
-    font-weight: 500;
-    font-size: 1.1rem;
-    color: #F8F8F2; 
-    background-color: #6272A4; 
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #50FA7B;
-  }
-  
-  button:active {
-    transform: scale(0.98);
-  }
-  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #F8F8F2;
+  background-color: #282A36;
+  overflow-x: hidden;  /* This prevents horizontal scrolling */
+}
+
+
+#main-content {
+  margin: 60px 40px 40px 40px;
+  flex: 1 0 auto; /* This will allow the main content to grow and shrink, while the footer stays at the bottom */
+}
+
+
+button {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #F8F8F2;
+  background-color: #6272A4;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #50FA7B;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.prompt-container {
+  border: 1px solid #444;
+  background-color: #44475A;
+  width: 90%;
+  /* percentage of the parent's width */
+  max-width: 1200px;
+  /* maximum width */
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  /* include padding and border in the element's total width and height */
+}
+
+@media screen and (max-width: 768px) {
+
+  /* when the screen size is 768px or less */
   .prompt-container {
-    border: 1px solid #444;
-    background-color: #44475A; 
-    width: 90%;  /* percentage of the parent's width */
-    max-width: 1200px;  /* maximum width */
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box; /* include padding and border in the element's total width and height */
-  }
-
-@media screen and (max-width: 768px) {  /* when the screen size is 768px or less */
-    .prompt-container {
-        width: 100%;  /* takes the full width of the screen */
-        padding: 10px 5px; /* decrease the padding */
-    }
-  }
-  
-  #tab-content {
-    border: 1px solid #444;
-    padding: 10px;
-    background-color: #4e5165;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  
-  .prompt {
-    min-height: 200px;  
-    min-width: 300px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    font-size: 1.1rem;
-    color: #F8F8F2;
-  }
-
-
-
-
-  .edit-prompt, .copy-prompt, .delete-prompt, .prompt-btn, .styled-button, #download-json, #upload-json {
-    background-color: #FF79C6;
-    border: none;
-    color: #282A36; 
-    padding: 5px 10px;
-    font-size: 14px;
-    cursor: pointer;
-    margin-left: 10px;
-    border-radius: 4px;
-    text-transform: uppercase;
-  }
-  
-  .edit-prompt:focus, .google-sign-out:focus {
-    outline: none;
-  }
-  
-  #add-tab, #save-prompts, #copy-all, #public {
-    background-color: #6272A4; 
-    border: none;
-    color: #F8F8F2; 
-    padding: 8px 16px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin: 10px 5px;
-    border-radius: 4px;
-    text-transform: uppercase;
-  }
-  
-  #add-tab:hover, #save-prompts:hover, #copy-all:hover, #public:hover, .copy-prompt:hover, .delete-prompt:hover, .styled-button:hover, #download-json:hover, #upload-json:hover {
-    background-color: #50FA7B;
-    color: #1c1c1c;
-  }
-  
-  .tabs, #tab-links {
-    display: flex;
-    flex-direction: column;
-    color: #F8F8F2; 
-    background-color: #282A36; 
-  }
-  
-  #tab-links {
-    flex-direction: row;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-    min-height: 50px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  #tab-links li {
-    background-color: #575a70; 
-    color: #F8F8F2; 
-    border: 1px solid #444;
-    border-bottom: none;
-    cursor: pointer;
-    display: inline-block;
-    margin-right: 2px;
-    padding: 10px;
-    font-size: 1.1rem;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    position: relative;
-    top: 1px;
-  }
-  
-  #tab-links li.active {
-    background-color: #303240; 
-    border-bottom: 1px solid #444;
-    z-index: 1;
-  }
-  
-  .tab {
-    display: none;
-  }
-  
-  .tab.active {
-    display: block;
-  }
-  
-  .prompt-title {
-    color: #8BE9FD;
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
-  .prompt-list {
-    background-color: #44475A;
-    padding: 15px;
-    border-radius: 5px;
-  }
-  
-  .google-sign-out {
-    display: inline-block;
-    background-color: #FF79C6; 
-    color: #282A36; 
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    margin-right: 40px; 
-  }
-  
-  .google-sign-out:hover {
-    background-color: #FFB86C;  
-  }
-  
-  nav {
-    display: flex;
-    justify-content: center;
-    background-color: #474a5c; 
-    padding: 12px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); 
     width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    margin-left: -40px;
-    margin-right: -10px;
+    /* takes the full width of the screen */
+    padding: 10px 5px;
+    /* decrease the padding */
   }
-  
-  .nav-wrapper {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-    padding: 0;
-    box-sizing: border-box;
-    color: #F8F8F2; 
-  }
-  
-  .spacer {
-    flex-grow: 1; 
-  }
-  
-  .nav-link {
-    margin: 0 40px;
-    text-decoration: none;
-    color: #F8F8F2; 
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 0 5px;
-    position: relative;
-  }
-  
-  .nav-link:last-child {
-    border-right: none;
-  }
-  
-  .nav-link:hover {
-    color: #8BE9FD; 
-  }
-  
-  #info-bar {
-    display: inline-block;
-    margin-left: 10px;
-    font-weight: bold;
-    color: #F8F8F2;
-  }
-  
-  footer {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    background-color: #474a5c; /* Dracula selection color */
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5); /* Dracula shadows are darker */
-    width: 105%;
-    margin: 0;
-    z-index: 100;
-    margin-left: -40px;
-    bottom: 0;
-    min-height: 40px; /* Add this line */
-    max-width: 110%;
-    position: fixed; /* Added this line */
-  }
+}
+
+#tab-content {
+  border: 1px solid #444;
+  padding: 10px;
+  background-color: #4e5165;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.prompt {
+  min-height: 200px;
+  min-width: 300px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 1.1rem;
+  color: #F8F8F2;
+}
+
+
+
+
+.edit-prompt,
+.copy-prompt,
+.delete-prompt,
+.prompt-btn,
+.styled-button,
+#download-json,
+#upload-json {
+  background-color: #FF79C6;
+  border: none;
+  color: #282A36;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.edit-prompt:focus,
+.google-sign-out:focus {
+  outline: none;
+}
+
+#add-tab,
+#save-prompts,
+#copy-all,
+#public {
+  background-color: #6272A4;
+  border: none;
+  color: #F8F8F2;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px 5px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+#add-tab:hover,
+#save-prompts:hover,
+#copy-all:hover,
+#public:hover,
+.copy-prompt:hover,
+.delete-prompt:hover,
+.styled-button:hover,
+#download-json:hover,
+#upload-json:hover {
+  background-color: #50FA7B;
+  color: #1c1c1c;
+}
+
+.tabs,
+#tab-links {
+  display: flex;
+  flex-direction: column;
+  color: #F8F8F2;
+  background-color: #282A36;
+}
+
+#tab-links {
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  min-height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#tab-links li {
+  background-color: #575a70;
+  color: #F8F8F2;
+  border: 1px solid #444;
+  border-bottom: none;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 2px;
+  padding: 10px;
+  font-size: 1.1rem;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: relative;
+  top: 1px;
+}
+
+#tab-links li.active {
+  background-color: #303240;
+  border-bottom: 1px solid #444;
+  z-index: 1;
+}
+
+.tab {
+  display: none;
+}
+
+.tab.active {
+  display: block;
+}
+
+.prompt-title {
+  color: #8BE9FD;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.prompt-list {
+  background-color: #44475A;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.google-sign-out {
+  display: inline-block;
+  background-color: #FF79C6;
+  color: #282A36;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-right: 40px;
+}
+
+.google-sign-out:hover {
+  background-color: #FFB86C;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #474a5c;
+  padding: 12px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  margin-left: -40px;
+  margin-right: -10px;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0;
+  box-sizing: border-box;
+  color: #F8F8F2;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.nav-link {
+  margin: 0 40px;
+  text-decoration: none;
+  color: #F8F8F2;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0 5px;
+  position: relative;
+}
+
+.nav-link:last-child {
+  border-right: none;
+}
+
+.nav-link:hover {
+  color: #8BE9FD;
+}
+
+#info-bar {
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: bold;
+  color: #F8F8F2;
+}

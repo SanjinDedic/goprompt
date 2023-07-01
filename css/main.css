@@ -7,16 +7,16 @@ html {
 }
 
 body {
-  font-family: 'Roboto', Arial, sans-serif;
-  margin: 0;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #282A36; /* Dracula background color */
-  color: #F8F8F2; /* Light grey text color */
-  padding-top: 38px; /* Add this line */
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #F8F8F2;
+  background-color: #282A36;
+  overflow-x: hidden;  /* This prevents horizontal scrolling */
 }
+
 
 h1 {
   margin: 10px 0;
@@ -240,21 +240,3 @@ input[type="submit"]:hover {
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
 }
-/* Footer css Start here */
-/*footer*/
-  footer {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    background-color: #474a5c; /* Dracula selection color */
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5); /* Dracula shadows are darker */
-    width: 105%;
-    margin: 0;
-    z-index: 100;
-    margin-left: -40px;
-    bottom: 0;
-    min-height: 40px; /* Add this line */
-    max-width: 110%;
-    position: fixed; /* Added this line */
-  }

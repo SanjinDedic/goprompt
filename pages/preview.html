@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompt Collection</title>
-    <link rel="stylesheet" type="text/css" href="/css/myprompt.css">
 
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Collection</title>
+  <link rel="stylesheet" type="text/css" href="/css/myprompt.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
 <body>
+  <div id="main-content">
     <nav>
       <div class="nav-wrapper">
         <a href="../index.html" class="nav-link">Home</a>
         <a href="/pages/preview.html" class="nav-link">Preview</a>
         <a href="/pages/privacy.html" class="nav-link">Privacy Policy</a>
-        <a href="/pages/report.html" class="nav-link" id="reportBugButton" target="_blank">🐞 Report a Bug</a>  
+        <a href="/pages/report.html" class="nav-link" id="reportBugButton" target="_blank">🐞 Report a Bug</a>
         <div class="spacer"></div>
         <a href="#" class="nav-link" id="buttonDiv">Login</a>
       </div>
@@ -24,7 +27,8 @@
     <button id="public">Publish Prompt Collection</button>
     <button id="download-json">Download JSON</button>
     <button id="upload-json">Upload JSON</button>
-    <div id="info-bar" style="display: inline-block; margin-left: 10px; font-weight: bold;">Preview mode - Log in to save your prompts</div>
+    <div id="info-bar" style="display: inline-block; margin-left: 10px; font-weight: bold;">Preview mode - Log in to
+      save your prompts</div>
     <div class="tabs">
       <ul id="tab-links">
         <!-- Tab links will be added dynamically -->
@@ -35,9 +39,19 @@
     </div>
     <!-- Add this line before the closing tag -->
     <button id="copy-all">Copy All</button>
-        <footer>
-      Goprompt.io by Sanjin Dedic 2023 ©    
-    </footer>
-    <script type="module" src="../js/mainprompt.js"></script>
+  </div>
+  <footer>
+    <div>
+      © 2023 | Website Designed by Sanjin Dedic
+    </div>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/sanjin-dedic/"><img src="\icons\icons8-linkedin-24.png"
+          alt="LinkedIn Logo"></a>
+      <a href="https://github.com/Sanjin84"><img src="\icons\icons8-github-24.png" alt="GitHub Logo"></a>
+      <a href="https://twitter.com/SanjinDedic"><img src="\icons\icons8-twitter-24.png" alt="Twitter Logo"></a>
+    </div>
+  </footer>
+  <script type="module" src="../js/mainprompt.js"></script>
 </body>
+
 </html>

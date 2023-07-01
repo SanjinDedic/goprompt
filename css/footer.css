@@ -1,0 +1,48 @@
+footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #474a5c; /* Dracula selection color */
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5); /* Dracula shadows are darker */
+  width: 100%;
+  margin: 0;
+  z-index: 100;
+  bottom: 0;
+  max-height: 60px; /* Adjust this line */
+  /* position: fixed; */  /* Added this line */
+  text-align: center;
+  font-size: 14px;
+  color: #fffdfd;
+  padding: 10px 0; /* Added to give space above and below content */
+  left: 0; /* Aligns the footer to the left edge of the viewport */
+}
+
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #000;
+}
+
+footer img {
+  margin: 0 10px;
+  vertical-align: middle;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+footer * {
+  margin: 0;
+  padding: 0;
+}
+
+footer p {
+  margin: 10px 0;
+}
