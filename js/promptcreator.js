@@ -82,7 +82,7 @@ export default class PromptCreator {
         addPromptButton.addEventListener("click", () => {
             // Call the createPrompt method here with your desired title, message and link.
             // This will create a new prompt below the current one.
-            let newPrompt = this.createPrompt(title,message,link);
+            let newPrompt = this.createPrompt("Your Title here...", "// Your new prompt here...", "// Your new link here...");
 
             // If there's a next sibling, insert the new prompt before the next sibling.
             // Otherwise, just append it to the end of the container.
