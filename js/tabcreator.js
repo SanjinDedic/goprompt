@@ -38,16 +38,8 @@ export default class TabCreator {
         tab.id = name;
         this.tabs[name] = tab;
 
-        // Create Add Prompt button for each tab
-        const addPromptBtn = document.createElement("button");
-        addPromptBtn.textContent = "Add Prompt";
-
-
-        // Add event listener
-        addPromptBtn.addEventListener("click", () => this.addPromptToTab(name)); // Pass the name of the tab
-
-        tab.appendChild(addPromptBtn);
         this.tabContentContainer.appendChild(tab);
+        this.addPromptToTab(name)
         return name;
     }
 
