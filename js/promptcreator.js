@@ -77,7 +77,7 @@ export default class PromptCreator {
         promptContainer.appendChild(topicLinkButton);
 
         let addPromptButton = document.createElement("button");
-        addPromptButton.textContent = "Add Prompt";
+        addPromptButton.textContent = "+";
         addPromptButton.classList.add("prompt-btn");
         addPromptButton.addEventListener("click", () => {
             // Call the createPrompt method here with your desired title, message and link.

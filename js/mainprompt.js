@@ -35,7 +35,7 @@ class MainPrompt {
             sessionStorage.removeItem("user");
             window.location.href = "../index.html"; // Define logouturl
         });
-
+        if (window.location.pathname.endsWith("preview.html")) this.loadDefaultData();
     }
 
     async checkSession() {
@@ -207,6 +207,5 @@ class MainPrompt {
 
 window.onload = () => {
     const mainPrompt = new MainPrompt();
-    mainPrompt.loadDefaultData();
 
 };
