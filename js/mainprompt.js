@@ -81,7 +81,7 @@ class MainPrompt {
             }
 
             if (!this.tabCreator.tabs[tabName]) {
-                this.tabCreator.createTab(tabName);
+                this.tabCreator.createTab(tabName,false);
             }
 
             const promptCreator = new PromptCreator(this.tabCreator.tabs[tabName]);
