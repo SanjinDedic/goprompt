@@ -44,7 +44,7 @@ export default class PromptCreator {
         let deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete Prompt";
         deleteButton.classList.add("prompt-btn");
-        deleteButton.addEventListener("click", () => this.deletePrompt(promptContainer));
+        deleteButton.addEventListener("click", () => this.deletePrompt(promptContainer,title));
         promptContainer.appendChild(deleteButton);
 
         // Create the Topic Link button
@@ -76,8 +76,29 @@ export default class PromptCreator {
         });
         promptContainer.appendChild(topicLinkButton);
 
+        let addPromptButton = document.createElement("button");
+        addPromptButton.textContent = "Add Prompt";
+        addPromptButton.classList.add("prompt-btn");
+        addPromptButton.addEventListener("click", () => {
+            // Call the createPrompt method here with your desired title, message and link.
+            // This will create a new prompt below the current one.
+            let newPrompt = this.createPrompt("Your Title here...", "// Your new prompt here...", "// Your new link here...");
+
+            // If there's a next sibling, insert the new prompt before the next sibling.
+            // Otherwise, just append it to the end of the container.
+            if(promptContainer.nextSibling) {
+                this.container.insertBefore(newPrompt, promptContainer.nextSibling);
+            } else {
+                this.container.appendChild(newPrompt);
+            }
+
+        
+        });
+        promptContainer.appendChild(addPromptButton);
         // Append the prompt container to the body
         this.container.appendChild(promptContainer);
+
+        return promptContainer;
     }
 
     preventPasteStyles(element) {
@@ -94,7 +115,13 @@ export default class PromptCreator {
         }
     }
 
-    deletePrompt(promptContainer) {
+    deletePrompt(promptContainer,title) {
         this.container.removeChild(promptContainer);
+    
+        // After removing the prompt, check if there are any prompts left in the container.
+        // If there are none, create a new one.
+        if (!this.container.querySelector('.prompt-container')) {
+            this.createPrompt(title, "// Your new prompt here...", "// Your new link here...");
+        }
     }
 }
