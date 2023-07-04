@@ -19,7 +19,6 @@ class MainPrompt {
         this.tabLinksContainer = document.querySelector('#tab-links');
         this.tabContentContainer = document.querySelector('#tab-content');
 
-
         if (window.location.pathname.endsWith("myprompt.html") || window.location.pathname.endsWith("preview.html")) this.tabCreator = new TabCreator(this.tabLinksContainer, this.tabContentContainer);
         this.downloadBtn = document.getElementById("download-json");
         if (this.downloadBtn) this.downloadBtn.addEventListener("click", () => this.downloadJson());
