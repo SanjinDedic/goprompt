@@ -9,7 +9,7 @@ export default class TabCreator {
         this.tabCounter = 1;
     }
     
-    createTab(name) {
+    createTab(name,firstprompt = true) {
         console.log('tab being created')
         if (!name) {
             name = `Tab ${this.tabCounter++}`;
@@ -39,7 +39,7 @@ export default class TabCreator {
         this.tabs[name] = tab;
 
         this.tabContentContainer.appendChild(tab);
-        this.addPromptToTab(name)
+        if (firstprompt) this.addPromptToTab(name)
         return name;
     }
 

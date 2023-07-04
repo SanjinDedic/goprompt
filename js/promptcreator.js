@@ -95,6 +95,22 @@ export default class PromptCreator {
         
         });
         promptContainer.appendChild(addPromptButton);
+
+        // Create the move up button
+        let moveUpButton = document.createElement("button");
+        moveUpButton.innerHTML = "&#129045;";
+        moveUpButton.classList.add("prompt-btn");
+        moveUpButton.addEventListener("click", () => this.movePromptUp(promptContainer));
+        promptContainer.appendChild(moveUpButton);
+
+        // Create the move down button
+        let moveDownButton = document.createElement("button");
+        moveDownButton.innerHTML = "&#129047;";
+        moveDownButton.classList.add("prompt-btn");
+        moveDownButton.addEventListener("click", () => this.movePromptDown(promptContainer));
+        promptContainer.appendChild(moveDownButton);
+
+
         // Append the prompt container to the body
         this.container.appendChild(promptContainer);
 
@@ -122,6 +138,22 @@ export default class PromptCreator {
         // If there are none, create a new one.
         if (!this.container.querySelector('.prompt-container')) {
             this.createPrompt(title, "// Your new prompt here...", "// Your new link here...");
+        }
+    }
+
+    movePromptUp(promptContainer) {
+        // Check if there is a previous sibling element (i.e., the prompt is not already at the top)
+        if(promptContainer.previousElementSibling) {
+            // Insert the prompt before its previous sibling
+            this.container.insertBefore(promptContainer, promptContainer.previousElementSibling);
+        }
+    }
+    
+    movePromptDown(promptContainer) {
+        // Check if there is a next sibling element (i.e., the prompt is not already at the bottom)
+        if(promptContainer.nextElementSibling) {
+            // Insert the next sibling before the prompt (this effectively moves the prompt down)
+            this.container.insertBefore(promptContainer.nextElementSibling, promptContainer);
         }
     }
 }
