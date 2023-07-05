@@ -15,6 +15,7 @@ body {
   color: #F8F8F2;
   background-color: #282A36;
   overflow-x: hidden;  /* This prevents horizontal scrolling */
+  padding-top: 38px;
 }
 
 
