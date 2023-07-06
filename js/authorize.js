@@ -5,7 +5,7 @@ export default class Authorize {
         this.status = status;
 
         // Check status and handle accordingly
-        if (status) {
+        if (!status) {
             this.apiHelper = new GopromptAPI('https://cyber9.live');
             this.googleScript = document.querySelector('script[src="https://accounts.google.com/gsi/client"]');
         if (this.googleScript) this.googleScript.addEventListener('load', this.onGAPILoad.bind(this));
