@@ -1,7 +1,6 @@
 ## Goprompt README
 
-This project is an HTML-based prompt collection system. The main functionality of the project is implemented in the following files: `mainprompt.js`, `tabcreator.js`, and `promptcreator.js`. 
-`authorise.js` does authentication with Google API and `gopromptapi.js` saves and fetches data from the back end.
+This project is an HTML-based prompt collection system. The main functionality of the project is implemented in the following files: `mainprompt.js`, `tabcreator.js`, and `promptcreator.js`. These files are responsible for reading prompt data and displaying it in a dynamic format made up of TABS which contain individual prompts. Both tabs and prompts are editable editable and deletable. Here is the breakdown of individual files and their use:
 
 ### mainprompt.js
 
