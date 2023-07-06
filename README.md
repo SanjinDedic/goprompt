@@ -45,3 +45,25 @@ The important methods in `TabCreator` include:
 - `switchTab(name)`: Switches to the tab with the specified name and updates the UI accordingly by adding an "active" class to the active tab link and tab content.
 
 The `TabCreator` class interacts closely with the `PromptCreator` class to create prompts within the tabs. It keeps track of the created tabs using an object and provides methods to manipulate the tabs and their associated prompts.
+
+
+### authorize.js
+
+The `authorize.js` file contains the `Authorize` class, which is responsible for user authorization. It has two main functionalities based on the provided status parameter:
+
+- If the testing `status` is true, it sets up a click event listener for the login button to simulate user login by storing a user session in the session storage.
+- If the testing `status` is false, it sets up the Google Sign-In API and handles the credential response. When the user logs in using Google Sign-In, it fetches a token from the server API and stores the user email in the session storage. It also shows a modal to prompt the user to agree to the privacy policy before redirecting to the login page. 
+
+The `Authorize` class interacts with the `GopromptAPI` class to fetch a token from the server and fetch prompts based on the user's email.
+
+### gopromptapi.js
+
+The `gopromptapi.js` file contains the `GopromptAPI` class, which handles interactions with the server API.
+
+- The `fetchToken(responseCredential)` method sends a POST request to the server to fetch a token using the provided response credential. It returns the data received from the server.
+- The `fetchPrompts(user)` method sends a POST request to the server to fetch prompts based on the user's email. It returns the fetched prompts.
+- The `savePrompts(data)` method sends a POST request to the server to save prompts. It includes the user's email in the data and returns the result received from the server.
+
+The `GopromptAPI` class is instantiated in the `MainPrompt` class to interact with the server API for saving and retrieving prompts.
+
+These files collectively provide the functionality to create, manage, and save prompts within tabs in the prompt collection system. They handle user authorization, fetching prompts from the server, saving prompts to the server, and manipulating the UI.
