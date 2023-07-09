@@ -16,8 +16,8 @@ export default class GopromptAPI {
             console.error('Error:', response.statusText);
             return null;
         }
-        const data = await response.json();
-        return data;
+        return await response.json();
+        
     }
 
     async fetchPrompts(user) {
@@ -41,8 +41,8 @@ export default class GopromptAPI {
     }
 
     async savePrompts(data) {
-        //const userEmail = JSON.parse(sessionStorage.getItem("user"));
-        const userEmail = sessionStorage.getItem("user");
+        const userEmail = JSON.parse(sessionStorage.getItem("user"));
+        //const userEmail = sessionStorage.getItem("user"); //used for testing
         // Include the email in the data
         data.email = userEmail;
         
@@ -62,4 +62,34 @@ export default class GopromptAPI {
           console.error("Error saving prompts:", error);
         }
       }
+
+      async fetchStats() {
+        try {
+            const response = await fetch(this.baseUrl + '/stats', {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            const stats = await response.json();
+            return stats;
+        } catch (error) {
+            console.error("Error fetching stats:", error);
+        }
+    }
+    async reportBug(bugReport) {
+        try {
+            const response = await fetch(this.baseUrl + '/submit-bug-report', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify([bugReport]),
+            });
+            return await response.json();
+            
+        } catch (error) {
+            console.error("Error submitting report:", error);
+        }
+    }
 }
