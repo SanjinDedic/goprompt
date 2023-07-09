@@ -68,7 +68,10 @@ export default class PromptCreator {
             if (elapsedTime >= 2000) {
                 // ask for new link
                 const newLink = prompt("Please enter the new link:");
-                if (newLink) link = newLink; // update the link if a new one is provided
+                if (newLink){
+                    link = newLink; // update the local variable link
+                    topicLinkButton.dataset.link = newLink; // update the actual link on the button
+                } // update the link if a new one is provided // update the link if a new one is provided
             } else {
                 // if button was not held down for 2 seconds, open the link as usual
                 window.open(link, '_blank');

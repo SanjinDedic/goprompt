@@ -3,14 +3,10 @@ import GopromptAPI from './gopromptapi.js';
 export default class Authorize {
     constructor(status) {
         this.status = status;
-
         // Check status and handle accordingly
-        if (!status) {
-            this.apiHelper = new GopromptAPI('https://cyber9.live');
-            this.googleScript = document.querySelector('script[src="https://accounts.google.com/gsi/client"]');
-        if (this.googleScript) this.googleScript.addEventListener('load', this.onGAPILoad.bind(this));
 
-        } else {
+        if (status) {
+
             let buttonDiv = document.getElementById("buttonDiv");
             if (buttonDiv) {
                 buttonDiv.addEventListener('click', () => {
@@ -18,6 +14,20 @@ export default class Authorize {
                     window.location.href = "../pages/myprompt.html"; // Define loginurl
                 });
             }
+        
+        } else {
+            
+            this.apiHelper = new GopromptAPI('https://cyber9.live');
+
+            // Create a new script element
+            const script = document.createElement('script');
+            script.src = 'https://accounts.google.com/gsi/client';
+        
+            // Once the script is loaded, call onGAPILoad
+            script.addEventListener('load', this.onGAPILoad.bind(this));
+        
+            // Append the script to the body
+            document.body.appendChild(script);
         }
 
     }
@@ -39,7 +49,7 @@ export default class Authorize {
                 
                 // If user agrees to the privacy policy, then redirect
                 if (privacyPolicyAgree) {
-                    window.location.href = loginurl;
+                    window.location.href = "../pages/myprompt.html";
                 } else {
                     alert('You must agree to the privacy policy');
                 }

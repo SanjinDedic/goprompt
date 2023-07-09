@@ -8,9 +8,9 @@ class MainPrompt {
     constructor() {
         // all of this runs once when MainPrompt is instantiated
         this.body = document.querySelector("body");
-        this.testing = true;
-        //either IP of the server or localhost(API VM)
-        this.apiHelper = new GopromptAPI('http://192.168.0.229:8000');
+        this.testing = false;
+        this.apiHelper = new GopromptAPI('http://192.168.100.96:8000');
+
         let authorize = new Authorize(this.testing);
         this.checkSession();
         // Create the "Add Tab" button
@@ -38,10 +38,26 @@ class MainPrompt {
             window.location.href = "../index.html"; // Define logouturl
         });
         if (window.location.pathname.endsWith("preview.html")) this.loadDefaultData();
+
+        if (window.location.pathname.endsWith("stats.html")) this.showStats();
+
+
+
+        if (window.location.pathname.endsWith("report.html")){
+            this.bugform = document.getElementById("report-form");
+            this.bugform.addEventListener("submit", (e) => {
+                e.preventDefault();
+                this.reportABug();
+            });
+        }
+
+
     }
     //check if user validly logged in prompts are fetched from server, otherwise redirect to homepage
     async checkSession() {
-        const userSession = sessionStorage.getItem("user"); //created on login
+        const userSession =  JSON.parse(sessionStorage.getItem("user"));
+        //const userSession =  sessionStorage.getItem("user");
+
         const currentPage = window.location.pathname;
 
         if (!userSession && currentPage.endsWith("myprompt.html")) {
@@ -205,6 +221,56 @@ class MainPrompt {
             console.error('Failed to load default data:', error);
         }
     }
+
+    async showStats(){
+        try{
+            const statsinfo = await this.apiHelper.fetchStats();
+            document.getElementById("totalUsers").textContent = statsinfo.total_users;
+            document.getElementById("totalPrompts").textContent = statsinfo.total_prompts;
+
+        }catch (error) {
+            console.error("Error getting stats:", error);
+        }
+    }
+
+    async reportABug(){
+        
+        try{
+            const username = document.getElementById('username').value;
+            const bugdescription = document.getElementById('bugdescription').value;
+
+            const bugReport = {
+            name: username,
+            description: bugdescription,
+            };
+
+            const result = await this.apiHelper.reportBug(bugReport);
+            
+            if (result.status === "success") this.showBugAlert();
+            
+            
+        }catch (error) {
+            console.error("Error getting stats:", error);
+        }
+    }
+
+    showBugAlert(){
+        const alert = document.getElementById("alert");
+        alert.style.display = "block";
+        setTimeout(function(){
+          alert.style.opacity = "1";
+        }, 20); // Short delay to ensure the alert is visible before starting fade out
+    
+        // After 3 seconds, start fading out
+        setTimeout(function(){
+          alert.style.opacity = "0";
+        }, 3000);
+    
+        // After the alert is faded out, hide it again
+        setTimeout(function(){
+          alert.style.display = "none";
+        }, 3600); // Wait for the fade out to complete before hiding the alert
+      };
 }
 
 window.onload = () => {
