@@ -28,9 +28,8 @@ background: #474a5c;
 position: relative;
 }
 .footer-out-container{
-  
-    padding: 20px; /* Adjust the padding value as needed */
-}
+   height: 200px;
+    }
 
 .footer-container {
   display: grid;
@@ -43,18 +42,12 @@ position: relative;
   padding: 10px;
 }
 
-.longest {
-  grid-column: 2 / 3; /* Set the middle column to span from column 2 to column 3 */
-}
-
 .footer-text p {
 margin-bottom: 14px;
 font-size: 16px;
     color: #c1c1c1;
 line-height: 28px;
 }
-
-
 
 .footer-social-icon span {
 color: #fff;
@@ -68,33 +61,25 @@ margin-bottom: 20px;
 .footer-social-icon a {
 
 color: #fff;
-font-size: 18px;
-margin-right: 15px;
+font-size: 8px;
+margin-right: 8px;
 }
 .footer-social-icon i {
-height: 38px;
-width: 38px;
+height: 18px;
+width: 18px;
 text-align: center;
-line-height: 38px;
-border-radius: 50%;
+line-height: 18px;
+border-radius: 10%;
 display: inline-flex;
 align-items: center;
 justify-content: center;
 }
-.github-bg{
-background: #5f1775;
-}
-.twitter-bg{
-background: #55ACEE;
-}
-.linkedin-bg{
-background: #0072b1;
-}
+
 .footer-widget-heading h3 {
 color: #fff;
 font-size: 20px;
 font-weight: 600;
-margin-bottom: 40px;
+margin-bottom: 20px;
 position: relative;
 }
 .footer-widget-heading h3::before {
@@ -113,20 +98,21 @@ overflow: hidden;
 
 }
 .subscribe-form input {
-width: 100%;
-padding: 14px 28px;
+width: 80%;
+padding: 12px 28px;
 background: #282A36;
 border: 1px solid #282A36;
 color: #fff;
 outline: none;
+
 }
 .subscribe-form button {
   position: absolute;
-  right: 0;
+  right: 12vh;
   background: #282A36;
   padding: 10px 20px;
   border: 1px solid #282A36;
-  top: 5px;
+  top: 0.5vh;
   align-self: center;
   
 }
