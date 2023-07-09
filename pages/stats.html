@@ -6,9 +6,8 @@
     <link id="stylesheet" rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/footer.css">
     <title>Stats Page</title>
-    <script src="/js/redirects.js"></script>
-    <script src="/js/stats.js"></script>
-    <script src="https://accounts.google.com/gsi/client" async defer onload="onGAPILoad()"></script>
+    <script type="module"  src="/js/mainprompt.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
   </head>
   <body>
     <nav>
@@ -34,16 +33,67 @@
         </div>
       </div>
     </div>
-    <footer>
-      <div>
-        © 2023 | Website Designed by Sanjin Dedic
+    <footer class="footer-section">
+      <div class="footer-out-container">
+          <div class="footer-container pt-5 pb-5">
+              
+                  <div class="footer-item">
+                      <div class="footer-widget">
+                          <div>
+                              <h3 style="color:#fff">GOPROMPT.IO © 2023</h3>
+                          </div>
+                          <div class="footer-text">
+                              <p>Contribute to GoPrompt.io!<br>
+                                Join our open-source community.<br>
+                                Help us improve <a href="https://github.com/Sanjin84/goprompt" target="_blank">GoPrompt.io</a> </p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="footer-item">
+                      <div class="footer-widget">
+                          <div class="footer-widget-heading">
+                              <h3>GoPrompt.io Team</h3>
+                          </div>
+                          <div class="team-members">
+                              <div class="team-member">
+                                  <h3 style="color:#fff">Sanjin Dedic</h3>
+                                  <div class="footer-social-icon">
+                                      <a href="https://github.com/Sanjin84" target="_blank"><i><img src="\icons\icons8-github-24.png" alt="GitHub Logo"></i></a>
+                                      <a href="https://twitter.com/SanjinDedic" target="_blank"><i><img src="\icons\icons8-twitter-24.png" alt="Twitter Logo"></i></a>
+                                      <a href="https://www.linkedin.com/in/sanjin-dedic/" target="_blank"><i><img src="\icons\icons8-linkedin-24.png" alt="LinkedIn Logo"></i></a>
+                                  </div>
+                              </div>
+                              <div class="team-member">
+                                  <h3 style="color:#fff">M Dawood</h3>
+                                  <div class="footer-social-icon">
+                                      <a href="https://github.com/DawoodLaiq" target="_blank"><i><img src="\icons\icons8-github-24.png" alt="GitHub Logo"></i></a>
+                                      <a href="#"><i><img src="\icons\icons8-twitter-24.png" alt="Twitter Logo"></i></a>
+                                      <a href="https://www.linkedin.com/in/dawood-ul-hassan-165004153/" target="_blank"><i><img src="\icons\icons8-linkedin-24.png" alt="LinkedIn Logo"></i></a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="footer-item">
+                      <div class="footer-widget">
+                          <div class="footer-widget-heading">
+                              <h3>Subscribe</h3>
+                          </div>
+                          <div class="footer-text mb-25">
+                              <p>Subscribe to get notified for new features and integrations.</p>
+                          </div>
+                          <div class="subscribe-form">
+                              <form action="#">
+                                  <input type="text" placeholder="Email Address">
+                                  <button><i><img src="\icons\icons8-telegram-24.png" alt="Telegram Logo"></i></button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
       </div>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/sanjin-dedic/"><img src="\icons\icons8-linkedin-24.png" alt="LinkedIn Logo"></a>
-        <a href="https://github.com/Sanjin84"><img src="\icons\icons8-github-24.png" alt="GitHub Logo"></a>
-        <a href="https://twitter.com/SanjinDedic"><img src="\icons\icons8-twitter-24.png" alt="Twitter Logo"></a>
-      </div>
-    </footer>
+  </footer>
     
   </body>
 </html>
