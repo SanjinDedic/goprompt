@@ -6,6 +6,7 @@ export default class TabCreator {
         this.tabContentContainer = tabContentContainer;
         this.tabs = {};
         this.tabLinksContainer.addEventListener("click", this.handleTabLinkClick.bind(this));
+        this.tabLinksContainer.addEventListener("dblclick", this.handleTabLinkDblClick.bind(this));
         this.tabCounter = 1;
     }
     
@@ -14,6 +15,9 @@ export default class TabCreator {
         if (!name) {
             name = `Tab ${this.tabCounter++}`;
         }
+        if (this.tabs[name]) {
+            name = `${name} (${this.tabCounter++})`;
+            }
         const tabLink = document.createElement("li");
         tabLink.textContent = name;
         tabLink.dataset.tabId = name;
@@ -73,6 +77,37 @@ export default class TabCreator {
         if (event.target.tagName === 'LI') {
             this.switchTab(event.target.dataset.tabId);
         }
+     
+    }
+
+    handleTabLinkDblClick(event) {
+        const tabLink = event.target;
+        // if tab link is clicked and not the delete button
+        if (!event.target.matches("span")) {
+            this.editTabName(tabLink);
+        }
+    }
+
+    // Add the function here
+    editTabName(tabLink) {
+        const oldTabId = tabLink.dataset.tabId;
+        const oldTabName = tabLink.textContent.replace("✖", "").trim();
+        const newTabName = prompt("Enter new tab name:", oldTabName);
+        if (!newTabName || newTabName.trim() === "" || newTabName === oldTabName) {
+            return;
+        }
+        const deleteIcon = tabLink.querySelector("span");
+        tabLink.textContent = newTabName;
+        tabLink.dataset.tabId = newTabName;
+        tabLink.appendChild(deleteIcon);
+        const oldTab = document.getElementById(oldTabId);
+        oldTab.id = newTabName;
+        // Update tab_name property for all prompts within the renamed tab
+        const promptContainers = oldTab.querySelectorAll(".prompt-container");
+        promptContainers.forEach((container) => {
+            container.dataset.tabName = newTabName;
+        });
+        
     }
     
     switchTab(name) {
