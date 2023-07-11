@@ -6,19 +6,21 @@ import Authorize from './authorize.js';
 //#endregion
 class MainPrompt {
     constructor() {
-        // Get a reference to the body
+        // all of this runs once when MainPrompt is instantiated
         this.body = document.querySelector("body");
         this.testing = false;
         this.apiHelper = new GopromptAPI('https://staging.cyber9.live');
         let authorize = new Authorize(this.testing);
         this.checkSession();
         // Create the "Add Tab" button
+
+        //adding event listeners to buttons
         this.addTabBtn = document.getElementById("add-tab");
         if (this.addTabBtn) this.addTabBtn.addEventListener("click", () => this.addTab());
 
         this.tabLinksContainer = document.querySelector('#tab-links');
         this.tabContentContainer = document.querySelector('#tab-content');
-
+        // if you are in a preview page or myprompt page, instantiate tabCreator
         if (window.location.pathname.endsWith("myprompt.html") || window.location.pathname.endsWith("preview.html")) this.tabCreator = new TabCreator(this.tabLinksContainer, this.tabContentContainer);
         this.downloadBtn = document.getElementById("download-json");
         if (this.downloadBtn) this.downloadBtn.addEventListener("click", () => this.downloadJson());
@@ -50,10 +52,11 @@ class MainPrompt {
 
 
     }
-
+    //check if user validly logged in prompts are fetched from server, otherwise redirect to homepage
     async checkSession() {
         const userSession =  JSON.parse(sessionStorage.getItem("user"));
         //const userSession =  sessionStorage.getItem("user");
+
         const currentPage = window.location.pathname;
 
         if (!userSession && currentPage.endsWith("myprompt.html")) {

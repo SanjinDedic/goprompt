@@ -4,7 +4,9 @@ export default class Authorize {
     constructor(status) {
         this.status = status;
         // Check status and handle accordingly
+
         if (status) {
+
             let buttonDiv = document.getElementById("buttonDiv");
             if (buttonDiv) {
                 buttonDiv.addEventListener('click', () => {
