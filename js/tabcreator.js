@@ -6,13 +6,17 @@ export default class TabCreator {
         this.tabContentContainer = tabContentContainer;
         this.tabs = {};
         this.tabLinksContainer.addEventListener("click", this.handleTabLinkClick.bind(this));
+        this.tabLinksContainer.addEventListener("dblclick", this.handleTabLinkDblClick.bind(this));
         this.tabCounter = 1;
     }
     
     createTab(name,firstprompt = true) {
         console.log('tab being created')
         if (!name) {
-            name = `Tab ${this.tabCounter++}`;
+            name = `Tab ${this.tabCounter}`;
+            while (this.isTabNameExists(name)) {
+                name = `Tab ${++this.tabCounter}`;
+            }
         }
         const tabLink = document.createElement("li");
         tabLink.textContent = name;
@@ -73,6 +77,41 @@ export default class TabCreator {
         if (event.target.tagName === 'LI') {
             this.switchTab(event.target.dataset.tabId);
         }
+     
+    }
+
+    handleTabLinkDblClick(event) {
+        const tabLink = event.target;
+        // if tab link is clicked and not the delete button
+        if (!event.target.matches("span")) {
+            this.editTabName(tabLink);
+        }
+    }
+
+    // Add the function here
+    editTabName(tabLink) {
+        const oldTabId = tabLink.dataset.tabId;
+        const oldTabName = tabLink.textContent.replace("✖", "").trim();
+        const newTabName = prompt("Enter new tab name:", oldTabName);
+        if (!newTabName || newTabName.trim() === "" || newTabName === oldTabName || this.isTabNameExists(newTabName)) {
+            return;
+        }
+        const deleteIcon = tabLink.querySelector("span");
+        tabLink.textContent = newTabName;
+        tabLink.dataset.tabId = newTabName;
+        tabLink.appendChild(deleteIcon);
+        const oldTab = document.getElementById(oldTabId);
+        oldTab.id = newTabName;
+        // Update tab_name property for all prompts within the renamed tab
+        const promptContainers = oldTab.querySelectorAll(".prompt-container");
+        promptContainers.forEach((container) => {
+            container.dataset.tabName = newTabName;
+        });
+
+        // Update in the tabs dictionary
+        this.tabs[newTabName] = this.tabs[oldTabName];
+        delete this.tabs[oldTabName];
+        
     }
     
     switchTab(name) {
@@ -90,6 +129,15 @@ export default class TabCreator {
                 tab.classList.add("active");
             }
         }
+    }
+    // Gets all current tabs
+    getAllTabNames() {
+        return Object.keys(this.tabs);
+    }
+    // Checks the if the tab name already exists
+    isTabNameExists(name) {
+        const allTabNames = this.getAllTabNames();
+        return allTabNames.includes(name);
     }
 
 }

@@ -9,8 +9,7 @@ class MainPrompt {
         // all of this runs once when MainPrompt is instantiated
         this.body = document.querySelector("body");
         this.testing = false;
-        this.apiHelper = new GopromptAPI('http://192.168.100.96:8000');
-
+        this.apiHelper = new GopromptAPI('https://staging.cyber9.live');
         let authorize = new Authorize(this.testing);
         this.checkSession();
         // Create the "Add Tab" button
