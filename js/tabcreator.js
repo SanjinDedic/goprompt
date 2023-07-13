@@ -13,11 +13,11 @@ export default class TabCreator {
     createTab(name,firstprompt = true) {
         console.log('tab being created')
         if (!name) {
-            name = `Tab ${this.tabCounter++}`;
-        }
-        if (this.tabs[name]) {
-            name = `${name} (${this.tabCounter++})`;
+            name = `Tab ${this.tabCounter}`;
+            while (this.isTabNameExists(name)) {
+                name = `Tab ${++this.tabCounter}`;
             }
+        }
         const tabLink = document.createElement("li");
         tabLink.textContent = name;
         tabLink.dataset.tabId = name;
@@ -93,7 +93,7 @@ export default class TabCreator {
         const oldTabId = tabLink.dataset.tabId;
         const oldTabName = tabLink.textContent.replace("✖", "").trim();
         const newTabName = prompt("Enter new tab name:", oldTabName);
-        if (!newTabName || newTabName.trim() === "" || newTabName === oldTabName) {
+        if (!newTabName || newTabName.trim() === "" || newTabName === oldTabName || this.isTabNameExists(newTabName)) {
             return;
         }
         const deleteIcon = tabLink.querySelector("span");
@@ -107,6 +107,10 @@ export default class TabCreator {
         promptContainers.forEach((container) => {
             container.dataset.tabName = newTabName;
         });
+
+        // Update in the tabs dictionary
+        this.tabs[newTabName] = this.tabs[oldTabName];
+        delete this.tabs[oldTabName];
         
     }
     
@@ -125,6 +129,15 @@ export default class TabCreator {
                 tab.classList.add("active");
             }
         }
+    }
+    // Gets all current tabs
+    getAllTabNames() {
+        return Object.keys(this.tabs);
+    }
+    // Checks the if the tab name already exists
+    isTabNameExists(name) {
+        const allTabNames = this.getAllTabNames();
+        return allTabNames.includes(name);
     }
 
 }
