@@ -55,6 +55,11 @@ export default class PromptCreator {
         topicLinkButton.classList.add("prompt-btn");
         let mouseDownTime = 0;  // timestamp when mouse down event occurs
 
+        // Add the 'transparent' class if the link is empty or contains "Your link here"
+        if (!link || link === '// Your new link here...') {
+            topicLinkButton.classList.add("transparent");
+        }
+
         topicLinkButton.addEventListener("mousedown", () => {
             // get current timestamp in milliseconds
             mouseDownTime = new Date().getTime();
@@ -68,9 +73,10 @@ export default class PromptCreator {
             if (elapsedTime >= 2000) {
                 // ask for new link
                 const newLink = prompt("Please enter the new link:");
-                if (newLink){
+                if (newLink) {
                     link = newLink; // update the local variable link
                     topicLinkButton.dataset.link = newLink; // update the actual link on the button
+                    topicLinkButton.classList.remove("transparent"); // remove the 'transparent' class
                 } // update the link if a new one is provided // update the link if a new one is provided
             } else {
                 // if button was not held down for 2 seconds, open the link as usual
