@@ -17,6 +17,11 @@ body {
   overflow-x: hidden;  /* This prevents horizontal scrolling */
 
 }
+
+.transparent {
+  opacity: 0.3;
+}
+
 input[type="text"], textarea {
   display: block;
   width: 100%;

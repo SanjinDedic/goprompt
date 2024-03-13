@@ -36,26 +36,39 @@ export default class Authorize {
         const user = await this.apiHelper.fetchToken(response.credential);
         if (user) {
             sessionStorage.setItem("user", JSON.stringify(user.email));
-
-            // Show modal
-            var modal = document.getElementById("myModal");
-            modal.style.display = "block";
-
-            // Handle modal submit button
-            document.getElementById("submitButton").onclick = function () {
-                // Here you can handle the values of checkboxes
-                var privacyPolicyAgree = document.getElementById("privacyPolicyAgree").checked;
-                var emailOptIn = document.getElementById("emailOptIn").checked;
-                
-                // If user agrees to the privacy policy, then redirect
-                if (privacyPolicyAgree) {
-                    window.location.href = "../pages/myprompt.html";
-                } else {
-                    alert('You must agree to the privacy policy');
+            
+            // Check if user has signed in before
+            if (!localStorage.getItem(user.email)) {
+                // User is signing in for the first time
+    
+                // Show modal
+                var modal = document.getElementById("myModal");
+                modal.style.display = "block";
+    
+                // Handle modal submit button
+                document.getElementById("submitButton").onclick = function () {
+                    // Here you can handle the values of checkboxes
+                    var privacyPolicyAgree = document.getElementById("privacyPolicyAgree").checked;
+                    var emailOptIn = document.getElementById("emailOptIn").checked;
+                    
+                    // If user agrees to the privacy policy, then redirect
+                    if (privacyPolicyAgree) {
+                        window.location.href = "../pages/myprompt.html";
+                    } else {
+                        alert('You must agree to the privacy policy');
+                    }
                 }
+    
+                // Save user to local storage
+                localStorage.setItem(user.email, JSON.stringify(user));
+    
+            } else {
+                // User has signed in before
+                // Redirect to another page or do something else
+                window.location.href = "../pages/myprompt.html";
             }
         } else {
-            console.error('Error:', response2.statusText);
+            console.error('Error:', response.statusText);
         }
     }
 
